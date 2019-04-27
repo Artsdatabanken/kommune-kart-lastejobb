@@ -1,0 +1,20 @@
+{
+  "name": "kommune-kart-lastejobb",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Artsdatabanken/kommune-kart-lastejobb",
+  "main": "test.js",
+  "scripts": {
+    "build": "node index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Bjorn Reppen <bjreppen@gmail.com> (https://github.com/bjornreppen)",
+  "license": "ISC",
+  "repository": "https://github.com/Artsdatabanken/kommune-kart-lastejobb",
+  "dependencies": {
+    "lastejobb": "^1.10.1",
+    "node-fetch": "^2.3.0"
+  }
+}
