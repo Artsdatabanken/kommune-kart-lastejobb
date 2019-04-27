@@ -15,8 +15,8 @@ const scrub = [
   "samiskforvaltningsomrade",
   "versjonid"
 ];
+
 const kommune = src["administrative_enheter.kommune"];
-io.skrivBuildfil("kommuneOrig.geojson", kommune);
 kommune.features.forEach(f => {
   f.geometry.coordinates = reducePrecision(f.geometry.coordinates);
   const props = f.properties;
