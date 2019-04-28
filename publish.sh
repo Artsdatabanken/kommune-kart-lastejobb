@@ -1,0 +1,1 @@
+scp build/*.geojson grunnkart@hydra:~/tilesdata/Fylke/
