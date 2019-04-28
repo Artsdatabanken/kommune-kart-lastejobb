@@ -20,16 +20,12 @@ function map(srcPath, navn) {
 
   const geo = src["administrative_enheter." + navn];
   geo.features.forEach(f => {
-    f.geometry.coordinates = reducePrecision(f.geometry.coordinates);
     const props = f.properties;
     scrub.forEach(key => delete props[key]);
     props.navn = mapNavn(props.navn);
   });
-  geo.features.sort((a, b) =>
-    a.properties.kommunenummer > b.properties.kommunenummer ? 1 : -1
-  );
-  const dstPath = navn + "_25833.geojson";
-  io.skrivBuildfil(dstPath, geo);
+  const dstPath = navn + ".geojson";
+  io.skrivDatafil(dstPath, geo);
 }
 
 function mapNavn(navn) {
@@ -38,11 +34,4 @@ function mapNavn(navn) {
     acc[n.sprak] = n.navn;
     return acc;
   }, {});
-}
-
-function reducePrecision(coords) {
-  return coords.map(c => {
-    if (Array.isArray(c)) return reducePrecision(c);
-    return Math.round(c);
-  });
 }
