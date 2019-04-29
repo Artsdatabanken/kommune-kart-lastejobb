@@ -13,11 +13,14 @@ function map(srcPath, navn) {
       geo.crs.name
     );
   });
-  geo.features.sort((a, b) =>
-    a.properties.kommunenummer > b.properties.kommunenummer ? 1 : -1
-  );
+  geo.features.sort((a, b) => (getkey(a) > getkey(b) ? 1 : -1));
   const dstPath = navn + ".geojson";
   io.skrivBuildfil(dstPath, geo);
+}
+
+function getkey(item) {
+  const props = item.properties;
+  return props.kommunenummer || props.fylkesnummer;
 }
 
 function mapNavn(navn) {
