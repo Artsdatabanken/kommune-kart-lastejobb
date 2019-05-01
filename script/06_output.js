@@ -1,7 +1,7 @@
 const { io } = require("lastejobb");
 
-map("fylke_4326.geojson", "fylke_4326");
-map("kommune_4326.geojson", "kommune_4326");
+map("fylke_25833.geojson", "fylke_25833");
+map("kommune_25833.geojson", "kommune_25833");
 map("fylke_4326.geojson", "fylke_4326");
 map("kommune_4326.geojson", "kommune_4326");
 
@@ -10,7 +10,7 @@ function map(srcPath, navn) {
   geo.features.forEach(f => {
     f.geometry.coordinates = reducePrecision(
       f.geometry.coordinates,
-      geo.crs.name
+      geo.crs.properties.name
     );
   });
   geo.features.sort((a, b) => (getkey(a) > getkey(b) ? 1 : -1));
@@ -21,14 +21,6 @@ function map(srcPath, navn) {
 function getkey(item) {
   const props = item.properties;
   return props.kommunenummer || props.fylkesnummer;
-}
-
-function mapNavn(navn) {
-  return navn.reduce((acc, n) => {
-    // https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
-    acc[n.sprak] = n.navn;
-    return acc;
-  }, {});
 }
 
 function reducePrecision(coords, crs) {
