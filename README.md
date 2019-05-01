@@ -3,21 +3,25 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md#pull-requests)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-Lastejobb for data om Norske fylker og kommuner ikke inklusive kartdata.
+Lastejobb for kartfiler med geometri for Norske fylker og kommuner. Utdatasett vedlikeholdes i [kommune-kart](https://github.com/Artsdatabanken/kommune-kart).
 
-## Datasett
+## Dataflyt
 
-Datasettet som er resultatet av lastejobben havner i repo [kommune-kart-data](https://github.com/Artsdatabanken/kommune-kart-data) og leses derfra av prosjekter som bruker datasettet.
+![Flytdiagram](./doc/flytdiagram.svg)
 
-## Dataene brukes blant annet av
+### Datakilder (takk til)
+
+- [Kartverket](https://kartkatalog.geonorge.no/metadata/kartverket/administrative-enheter-kommuner/041f1e6e-bdbc-4091-b48f-8a5990f3cc5b)
+
+## Utdatasett
+
+Datasettet som er resultatet av lastejobben havner i repo [kommune-kart](https://github.com/Artsdatabanken/kommune-kart) og leses videre derfra av prosjekter som bruker datasettet.
+
+### Leses av
+
+- [nin-data-lastejobb](https://github.com/Artsdatabanken/nin-data-lastejobb)
+
+### Bruk i sluttprodukter
 
 - [Natur i Norge kart](https://github.com/Artsdatabanken/nin-kart-frontend)
 - [Artsdatabanken åpne data](https://data.artsdatabanken.no/)
-
-## Baserer seg på åpne data fra (takk til)
-
-- [Wikipedia](https://no.wikipedia.org)
-
-## Avhenger av
-
-- [Lastejobb](https://github.com/Artsdatabanken/lastejobb) (library)
