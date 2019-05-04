@@ -19,8 +19,7 @@ function map(srcPath, navn) {
 }
 
 function getkey(item) {
-  const props = item.properties;
-  return props.kommunenummer || props.fylkesnummer;
+  return item.properties.autorkode;
 }
 
 function reducePrecision(coords, crs) {
