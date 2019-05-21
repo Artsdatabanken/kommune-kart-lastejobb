@@ -8,8 +8,10 @@ function bbox(nivå) {
   let vo = io.lesDatafil(nivå + "_4326.geojson");
 
   vo.features.forEach(v => {
+    const props = v.properties;
     const node = meta[v.properties.autorkode];
     node.bbox = geospatial.axisAlignedBoundingBox(v.geometry.coordinates);
+    node.navn = props.navn;
   });
 
   let r = json.objectToArray(meta, "autorkode");
