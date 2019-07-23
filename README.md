@@ -28,7 +28,7 @@ Datasettet som er resultatet av lastejobben havner i repo [kommune-kart](https:/
 
 ## Hvordan bygge
 
-Forutsetter at ogr2ogr bilbliotekene er installert eller tilgjengelige i PATH: [Ogr2ogr](https://gdal.org/programs/ogr2ogr.html)
+Forutsetter at gdal bilbliotekene er installert eller tilgjengelige i PATH: [Ogr2ogr](https://gdal.org/programs/ogr2ogr.html)
 ````
 npm install
 npm build
