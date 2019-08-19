@@ -25,11 +25,16 @@ function map(srcPath, navn) {
     json.moveKey(props, "fylkesnummer", "autorkode");
     json.moveKey(props, "kommunenummer", "autorkode");
     props.navn = mapNavn(props.navn);
+    props.code = "AO-TO-FL-" + addDash(props.autorkode);
   });
   const dstPath = navn + ".geojson";
   io.skrivDatafil(dstPath, geo);
 }
 
+function addDash(kode) {
+  if (kode.length <= 2) return kode;
+  return kode.substring(0, 2) + "-" + kode.substring(2, 4);
+}
 function mapNavn(navn) {
   // From: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
   // To: https://iso639-3.sil.org/code_tables/639/data/s?page=1
