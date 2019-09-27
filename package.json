@@ -16,7 +16,7 @@
   "license": "ISC",
   "repository": "https://github.com/Artsdatabanken/kommune-kart-lastejobb",
   "dependencies": {
-    "lastejobb": "^2.7.2",
+    "lastejobb": "^2.7.3",
     "node-fetch": "^2.6.0"
   }
 }
