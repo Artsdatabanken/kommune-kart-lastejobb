@@ -9,7 +9,7 @@
     "transform": "node index transform",
     "build": "npm run download && npm run transform",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "./deploy.sh"
+    "deploy": "node index deploy"
   },
   "keywords": [],
   "author": "Bjorn Reppen <bjreppen@gmail.com> (https://github.com/bjornreppen)",
