@@ -11,7 +11,7 @@ function bbox(nivå) {
     const props = v.properties;
     const node = meta[v.properties.autorkode];
     node.bbox = geospatial.axisAlignedBoundingBox(v.geometry.coordinates);
-    node.navn = props.navn;
+    node.tittel = props.navn;
   });
 
   let r = json.objectToArray(meta, "autorkode");

@@ -24,7 +24,7 @@ function map(srcPath, navn) {
     scrub.forEach(key => delete props[key]);
     json.moveKey(props, "fylkesnummer", "autorkode");
     json.moveKey(props, "kommunenummer", "autorkode");
-    props.tittel = mapNavn(props.navn);
+    props.navn = mapNavn(props.navn);
     props.code = "AO-TO-FL-" + addDash(props.autorkode);
   });
   const dstPath = navn + ".geojson";
