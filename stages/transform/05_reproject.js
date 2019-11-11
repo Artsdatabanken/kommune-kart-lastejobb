@@ -5,6 +5,6 @@ reproject("kommune_25833.geojson", "kommune_4326.geojson");
 
 function reproject(src, target, epsg = "EPSG:4326") {
   execSync(
-    `ogr2ogr -nln polygons -f GeoJSON -t_srs ${epsg} data/${target} data/${src}`
+    `ogr2ogr -nln polygons -f GeoJSON -t_srs ${epsg} temp/${target} temp/${src}`
   );
 }
