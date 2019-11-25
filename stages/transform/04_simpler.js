@@ -1,4 +1,4 @@
-const { io, log } = require("lastejobb");
+const { log } = require("lastejobb");
 const execSync = require("child_process").execSync;
 const fs = require("fs");
 
