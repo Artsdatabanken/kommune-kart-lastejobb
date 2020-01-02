@@ -1,4 +1,4 @@
-const { http, io, log } = require("lastejobb");
+const { http, log } = require("lastejobb");
 
 const downloads = {
   kommune:
