@@ -18,7 +18,7 @@ function map(srcPath, navn) {
     "versjonid"
   ];
 
-  const key = Object.keys(src).find(x=>x.indexOf(navn)>=0)
+  const key = Object.keys(src).find(x => x.indexOf(navn) >= 0);
   const geo = src[key];
   geo.features.forEach(f => {
     const props = f.properties;
@@ -26,7 +26,7 @@ function map(srcPath, navn) {
     json.moveKey(props, "fylkesnummer", "autorkode");
     json.moveKey(props, "kommunenummer", "autorkode");
     props.navn = mapNavn(props.navn);
-    props.code = "AO-TO-FL-" + addDash(props.autorkode);
+    props.kode = "AO-TO-FL-" + addDash(props.autorkode);
   });
   const dstPath = navn + ".geojson";
   io.skrivDatafil(dstPath, geo);
