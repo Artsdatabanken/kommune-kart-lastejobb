@@ -1,7 +1,7 @@
 const { io, json } = require("lastejobb");
 
-map("Basisdata_0000_Norge_25833_Fylker2020_GEOJSON.geojson", "fylke");
-map("Basisdata_0000_Norge_25833_Kommuner2020_GEOJSON.geojson", "kommune");
+map("Basisdata_0000_Norge_25833_Fylker_GEOJSON.geojson", "fylke");
+map("Basisdata_0000_Norge_25833_Kommuner_GEOJSON.geojson", "kommune");
 
 function map(srcPath, navn) {
   const src = io.lesDatafil(srcPath);
