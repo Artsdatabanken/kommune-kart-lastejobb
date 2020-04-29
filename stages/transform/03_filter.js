@@ -4,7 +4,7 @@ map("Basisdata_0000_Norge_25833_Fylker_GEOJSON.geojson", "fylke");
 map("Basisdata_0000_Norge_25833_Kommuner_GEOJSON.geojson", "kommune");
 
 function map(srcPath, navn) {
-  const src = io.lesDatafil(srcPath);
+  const src = io.lesTempJson(srcPath);
 
   const scrub = [
     "datafangstdato",

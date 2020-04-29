@@ -1,7 +1,7 @@
 const { log } = require("lastejobb");
 const execSync = require("child_process").execSync;
 const fs = require("fs");
-
+return
 simplify("fylke.geojson", "fylke_25833.geojson", 1);
 simplify("kommune.geojson", "kommune_25833.geojson", 1);
 

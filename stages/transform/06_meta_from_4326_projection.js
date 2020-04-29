@@ -4,7 +4,7 @@ areal("fylke");
 areal("kommune");
 
 function areal(nivå) {
-  let vo = io.lesDatafil(nivå + "_25833.geojson");
+  let vo = io.lesTempJson(nivå + "_25833.geojson");
 
   let r = {};
   vo.features.forEach(v => {

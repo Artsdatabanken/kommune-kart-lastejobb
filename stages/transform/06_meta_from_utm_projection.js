@@ -4,8 +4,8 @@ bbox("fylke");
 bbox("kommune");
 
 function bbox(nivå) {
-  const meta = io.lesDatafil(nivå + "_meta.json");
-  let vo = io.lesDatafil(nivå + "_4326.geojson");
+  const meta = io.lesTempJson(nivå + "_meta.json");
+  let vo = io.lesTempJson(nivå + "_4326.geojson");
 
   vo.features.forEach(v => {
     const props = v.properties;
