@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
 
-
 ogr2ogr() {
-    echo $1
+    echo ogr2ogr $@
     docker run --rm -v /home:/home osgeo/gdal:alpine-normal-latest ogr2ogr $@
 }
 
