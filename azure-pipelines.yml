@@ -25,6 +25,7 @@ steps:
   displayName: 'npm install and run download'
 
 - script: |
-    sh stages/transform/04_simpler.sh 
+    sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
+    sudo apt-get install gdal-bin
     npm run transform
   displayName: 'npm transform'
