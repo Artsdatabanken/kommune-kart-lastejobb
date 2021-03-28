@@ -52,6 +52,7 @@ Forutsetter at gdal bilbliotekene er installert eller tilgjengelige i PATH: [Ogr
 - `data`: Temporær lagring av nedlastede data og mellomformater
 
 ## Bruk
+Krever at du bygger på linux - se nederst.
 
 ### Installere
 
@@ -90,3 +91,10 @@ Kjører hele lastejobben, først `download`, så `transform`.
 ### Deploy
 
 Tar filene fra `build`-katalogen som er produsert i `build` eller `transform` og publiserer disse offentlig slik at andre lastejobber eller konsumenter kan nå dem uten å kjøre lastejobben.
+
+### wsl/linux
+
+Kan kun bygges på linux/wsl fordi den benytter seg av bash kommandoer. Bygg avhengig av at gdal og docker er installert og at brukerkonto har lov å kjøre docker. Typisk hvis du har wsl og docker på windows os - husk å aktivere at wsl kan bruke docker i docker settings, samt å legge til din brukerkonto i docker gruppa i wsl
+```bash
+sudo usermod -a -G docker $USER
+```
