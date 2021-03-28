@@ -25,5 +25,6 @@ steps:
   displayName: 'npm install and run download'
 
 - script: |
+    sh stages/transform/04_simpler.sh 
     npm run transform
   displayName: 'npm transform'
