@@ -18,3 +18,11 @@ jobs:
       - run: npm update
       - run: npm run download
       - run: npm run transform
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/*"
+          tag: v_${{ github.run_number }}
+      - name: post to slack
+        run: ./.github/workflows/slack.sh ${{ secrets.POST_SLACK }}
+        shell: bash
