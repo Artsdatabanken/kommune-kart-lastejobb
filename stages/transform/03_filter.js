@@ -1,4 +1,4 @@
-const { io, json } = require("lastejobb");
+const { io, json } = require("@artsdatabanken/lastejobb");
 
 map("Basisdata_0000_Norge_25833_Fylker_GeoJSON.geojson", "fylke");
 map("Basisdata_0000_Norge_25833_Kommuner_GeoJSON.geojson", "kommune");

@@ -1,4 +1,4 @@
-const { geospatial, io, json } = require("lastejobb");
+const { geospatial, io, json } = require("@artsdatabanken/lastejobb");
 
 bbox("fylke");
 bbox("kommune");
