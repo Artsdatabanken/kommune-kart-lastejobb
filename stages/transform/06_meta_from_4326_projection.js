@@ -1,4 +1,4 @@
-const { geospatial, io } = require("lastejobb");
+const { geospatial, io } = require("@artsdatabanken/lastejobb");
 
 areal("fylke");
 areal("kommune");
