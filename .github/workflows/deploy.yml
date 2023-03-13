@@ -15,5 +15,6 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
+      - run: npm update
       - run: npm run download
       - run: npm run transform
