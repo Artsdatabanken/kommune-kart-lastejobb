@@ -1,0 +1,50 @@
+name: publish jsons to Administrativ_grense/Territorialområde/Fastlands-Norge & tif to punkt-oppslag
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - run: npm install
+      - run: npm update
+      - run: npm run download
+      - run: npm run transform
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/*"
+          tag: v_${{ github.run_number }}
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: artsdatabanken/kommune-kart
+          path: './destinationRepo'
+          token: ${{secrets.PUSH_TOKEN}}
+      - name: Run deployment script
+        run: ./.github/workflows/deploy.sh 
+        shell: bash
+      - name: Push to kommune-kart
+        run: |
+          cd destinationRepo
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "<>"
+          git config --global --list
+          git stage .
+          git commit -m "Updated from kommune-kart-lastejobb v_${{ github.run_number }}"
+          git branch --set-upstream-to master
+          git push https://$USERNAME:$REPO_KEY@github.com/Artsdatabanken/kommune-kart.git
+        env:
+          REPO_KEY: ${{secrets.PUSH_TOKEN}}
+          USERNAME: github-actions[bot]
+      - name: post to slack
+        run: ./.github/workflows/slack.sh ${{ secrets.POST_SLACK }}
+        shell: bash

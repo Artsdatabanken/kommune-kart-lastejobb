@@ -3,7 +3,6 @@ const { dops } = require("@artsdatabanken/lastejobb");
 main();
 
 function main() {
-    console.log("punkt oppslag");
     let srcFolder = 'build';
     var n = dops.start_gdal(dops.create_container_name('punktOppslag'), srcFolder);
     let cmd = `gdal_rasterize -a autorkode -tr 100 100 /tmp/kommune_25833.geojson /tmp/kommune.tif`
