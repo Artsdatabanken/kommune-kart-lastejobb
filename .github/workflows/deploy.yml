@@ -2,7 +2,7 @@ name: publish jsons to Administrativ_grense/Territorialområde/Fastlands-Norge &
 
 on:
   push:
-    branches: [ deployment ]
+    branches: [ master ]
 
 jobs:
   build:
