@@ -1,4 +1,9 @@
-const { archive } = require("@artsdatabanken/lastejobb");
+// const { archive } = require("@artsdatabanken/lastejobb");
+const unzipper = require("unzipper");
+async function unzip(archive) {
+    const directory = await unzipper.Open.file("./temp/" + archive);
+    await directory.extract({ path: './temp' })
+}
 
-archive.unzip("kommune_geometri.zip");
-archive.unzip("fylke_geometri.zip");
+unzip("kommune_geometri.zip");
+unzip("fylke_geometri.zip");
