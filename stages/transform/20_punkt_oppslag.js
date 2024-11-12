@@ -5,7 +5,7 @@ main();
 function main() {
     let srcFolder = 'build';
     var n = dops.start_gdal(dops.create_container_name('punktOppslag'), srcFolder);
-    let cmd = `gdal_rasterize -a autorkode -tr 100 100 /tmp/kommune_25833.geojson /tmp/kommune.tif`
+    let cmd = `gdal_rasterize -q -a autorkode -tr 100 100 /tmp/kommune_25833.geojson /tmp/kommune.tif`
     dops.exec_docker(n, cmd);
     dops.clean_container(n);
 }

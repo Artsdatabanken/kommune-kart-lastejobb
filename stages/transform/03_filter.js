@@ -1,7 +1,7 @@
 const { io, json } = require("@artsdatabanken/lastejobb");
 
-map("Basisdata_0000_Norge_25833_Fylker_GeoJSON.geojson", "fylke");
-map("Basisdata_0000_Norge_25833_Kommuner_GeoJSON.geojson", "kommune");
+map("Basisdata_0000_Norge_25833_Fylker_GeoJSON.geojson", "Fylke");
+map("Basisdata_0000_Norge_25833_Kommuner_GeoJSON.geojson", "Kommune");
 
 function map(srcPath, navn) {
   const src = io.lesTempJson(srcPath);
@@ -25,10 +25,11 @@ function map(srcPath, navn) {
     scrub.forEach(key => delete props[key]);
     json.moveKey(props, "fylkesnummer", "autorkode");
     json.moveKey(props, "kommunenummer", "autorkode");
+    json.moveKey(props, "administrativenhetnavn", "navn");
     props.navn = mapNavn(props.navn);
     props.kode = "AO-TO-FL-" + addDash(props.autorkode);
   });
-  const dstPath = navn + ".geojson";
+  const dstPath = navn.toLowerCase() + ".geojson";
   io.skrivDatafil(dstPath, geo);
 }
 

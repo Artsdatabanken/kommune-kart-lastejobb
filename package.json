@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "download": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/download",
-    "transform": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
+    "transform": "node --max-old-space-size=6000 node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
     "build": "npm run download && npm run transform",
     "deploy": "node node_modules/lastejobb/lastejobb stages/deploy"
   },
@@ -16,6 +16,7 @@
   "license": "ISC",
   "repository": "https://github.com/Artsdatabanken/kommune-kart-lastejobb",
   "dependencies": {
-    "@artsdatabanken/lastejobb": "^4.0.7"
+    "@artsdatabanken/lastejobb": "^4.0.7",
+    "unzipper": "^0.12.3"
   }
 }
